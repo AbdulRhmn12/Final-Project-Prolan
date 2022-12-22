@@ -10,4 +10,4 @@ Cara menjalankan file:
 - chmod +x Final_Project
 - ./Final_Project
 2. Windows
-- Buka file .cpp menggunakan compilter lain
+- Buka file .cpp menggunakan compilter lain (DISARANKAN DARI WEB. Karena Fitur Compiler C/C++ pada windows tidak selengkap Linux/MACOS)
