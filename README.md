@@ -9,5 +9,5 @@ Cara menjalankan file:
 - sudo apt-get install build-essential gdb
 - chmod +x Final_Project
 - ./Final_Project
-b. Windows
+2. Windows
 - Buka file .cpp menggunakan compilter lain
