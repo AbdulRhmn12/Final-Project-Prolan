@@ -43,19 +43,81 @@ void data_tags(){
 }
 
 void searching(){
-    // Membuat fitur pencarian
+    if(flag == 1){
+        // Mencari data Berdasarkan judul buku
+        
+    } else if (flag == 2){
+        // Mencari data Berdasarkan Penerbit
+        
+    } else if (flag == 3){
+        // Mencari data Berdasarkan Tahun Terbit
+        
+    }
 }
 
 void searching_tags(){
-    // Membuat fitur pencarian berdasarkan tags
+    if(isTrue){
+        string tags;
+        cout << "Masukkan tags yang ingin dicari (dipisahkan dengan koma): ";
+        getline(cin, tags);
+        getline(cin, tags);
+
+        vector<string> tags_array;
+        int pos = 0;
+        while ((pos = tags.find(',')) != string::npos) {
+            tags_array.push_back(tags.substr(0, pos));
+            tags.erase(0, pos + 1);
+        }
+        tags_array.push_back(tags);
+
+        cout << endl << "Judul buku yang ditemukan:" << endl;
+        cout << "Rating \t Judul Buku" << endl;
+        for (Search_Engine book : SEO) {
+            for (string tag : tags_array) {
+                if (book.tags.find(tag) != string::npos) {
+                    cout << book.rating << "\t " << book.judul_buku << endl;
+                break;
+                }
+            }
+        }
+    }
 }
 
 void sorting(){
-    // Membuat sorting
+    if (flag == 4){
+        // Sorting buku Berdasarkan Judul buku
+
+    } else if (flag == 5){
+        // Sorting buku Berdasarkan Penerbit
+
+    } else if (flag == 6){
+        // Sorting buku Berdasarkan Tahun Terbit
+
+    } else if (flag == 7){
+        // Sorting buku Berdasarkan Rating
+
+    }
 }
 
 void pinjam_buku(){
-    // Membuat fungsi untuk meminjam buku
+    string pinjam;
+    cout << "Masukkan judul buku yang ingin dipinjam: ";
+    getline(cin, pinjam);
+    getline(cin, pinjam);
+
+    for(int i = 1; i <= MAX; i++){
+        if(perpus[1].judul_buku == pinjam){
+            isTrue = true;
+            if(isTrue){
+                perpus[i].status = "Dipinjam";
+                break;
+            } 
+        } else {
+            isTrue = false;
+            cout << "Masukkan judul buku dengan benar!" << endl;
+            break;
+        }
+    }
 }
 
 void admin(){
@@ -74,7 +136,13 @@ void admin(){
 void edit_data(){
     admin();
     if(isTrue){
-        // Membuat edit data
+        if (flag == 8){
+            // Masukkan fungsi untuk menambahkan data buku menggunakan stack
+        } else if (flag == 9){
+            // Masukkan fungsi untuk menghapus data buku menggunakan stack
+        } else if (flag == 10){
+            // Masukkan fungsi untuk merubah data buku dari dalam stack
+        }
     }
 }
 
@@ -118,16 +186,20 @@ int main(){
                     cin >> pilihan;
 
                     switch(pilihan){
-                        case 1: sorting();
+                        case 1: flag = 4;
+                                sorting();
                                 cout << endl;
                                 break;
-                        case 2: sorting();
+                        case 2: flag = 5;
+                                sorting();
                                 cout << endl;
                                 break;
-                        case 3: sorting();
+                        case 3: flag = 6;
+                                sorting();
                                 cout << endl;
                                 break;
-                        case 4: sorting();
+                        case 4: flag = 7;
+                                sorting();
                                 cout << endl;
                                 break;
 
@@ -143,13 +215,16 @@ int main(){
                     cin >> pilihan;
 
                     switch (pilihan){
-                        case 1: searching();
+                        case 1: flag = 1;
+                                searching();
                                 cout << endl;
                                 break;
-                        case 2: searching();
+                        case 2: flag = 2;
+                                searching();
                                 cout << endl;
                                 break;
-                        case 3: searching();
+                        case 3: flag = 3;
+                                searching();
                                 cout << endl;
                                 break;
                         case 4: isTrue = true;
@@ -171,13 +246,16 @@ int main(){
                     cin >> pilihan;
 
                     switch (pilihan){
-                        case 1: edit_data();
+                        case 1: flag = 8;
+                                edit_data();
                                 cout << endl;
                                 break;
-                        case 2: edit_data();
+                        case 2: flag = 9;
+                                edit_data();
                                 cout << endl;
                                 break;
-                        case 3: edit_data();
+                        case 3: flag = 10;
+                                edit_data();
                                 cout << endl;
                                 break;
                         default: cout << "Pilihanmu Tidak Tersedia!" << endl << endl;
