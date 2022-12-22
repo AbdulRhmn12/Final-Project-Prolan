@@ -56,7 +56,31 @@ void searching(){
 }
 
 void searching_tags(){
-    // Membuat fitur pencarian berdasarkan tags
+    if(isTrue){
+        string tags;
+        cout << "Masukkan tags yang ingin dicari (dipisahkan dengan koma): ";
+        getline(cin, tags);
+        getline(cin, tags);
+
+        vector<string> tags_array;
+        int pos = 0;
+        while ((pos = tags.find(',')) != string::npos) {
+            tags_array.push_back(tags.substr(0, pos));
+            tags.erase(0, pos + 1);
+        }
+        tags_array.push_back(tags);
+
+        cout << endl << "Judul buku yang ditemukan:" << endl;
+        cout << "Rating \t Judul Buku" << endl;
+        for (Search_Engine book : SEO) {
+            for (string tag : tags_array) {
+                if (book.tags.find(tag) != string::npos) {
+                    cout << book.rating << "\t " << book.judul_buku << endl;
+                break;
+                }
+            }
+        }
+    }
 }
 
 void sorting(){
