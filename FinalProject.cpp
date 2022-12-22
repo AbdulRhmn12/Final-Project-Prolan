@@ -100,7 +100,24 @@ void sorting(){
 }
 
 void pinjam_buku(){
-    // Membuat fungsi untuk meminjam buku
+    string pinjam;
+    cout << "Masukkan judul buku yang ingin dipinjam: ";
+    getline(cin, pinjam);
+    getline(cin, pinjam);
+
+    for(int i = 1; i <= MAX; i++){
+        if(perpus[1].judul_buku == pinjam){
+            isTrue = true;
+            if(isTrue){
+                perpus[i].status = "Dipinjam";
+                break;
+            } 
+        } else {
+            isTrue = false;
+            cout << "Masukkan judul buku dengan benar!" << endl;
+            break;
+        }
+    }
 }
 
 void admin(){
