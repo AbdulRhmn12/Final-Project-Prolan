@@ -27,11 +27,11 @@ void data_buku(){
     perpus[4].rating = 9.0;
     perpus[4].status = "Tersedia";
 
-    perpus[5].judul_buku = "Bangsa gagal ; Mencari identitas kebangsaan";
-    perpus[5].penerbit = "LKiS";
-    perpus[5].penulis = "Nasruddin Anshoriy";
-    perpus[5].tahun_terbit = 2008;
-    perpus[5].rating = 9.1;
+    perpus[5].judul_buku = "The Hobbit: An Unexpected Journey";
+    perpus[5].penerbit = "HarperCollins Children’s Books";
+    perpus[5].penulis = "Paddy Kempshall";
+    perpus[5].tahun_terbit = 2013;
+    perpus[5].rating = 9.4;
     perpus[5].status = "Tersedia";
 
     perpus[6].judul_buku = "Koala Kumal";
@@ -43,8 +43,8 @@ void data_buku(){
 
     perpus[7].judul_buku = "Negeri 5 Menara";
     perpus[7].penerbit = "PT. Gramedia Pustaka Utama";
-    perpus[7].penulis = "Raditya Dika";
-    perpus[7].tahun_terbit = 2009;
+    perpus[7].penulis = "Ahmad Fuadi";
+    perpus[7].tahun_terbit = 2012;
     perpus[7].rating = 9.4;
     perpus[7].status = "Tersedia";
 
@@ -59,7 +59,7 @@ void data_buku(){
     perpus[9].penerbit = "Gradien Mediatama";
     perpus[9].penulis = "Oben Cedric";
     perpus[9].tahun_terbit = 2009;
-    perpus[9].rating = 9.7;
+    perpus[9].rating = 8.4;
     perpus[9].status = "Tersedia";
 
     perpus[10].judul_buku = "Dear Nathan";
@@ -76,7 +76,7 @@ void data_buku(){
     perpus[11].rating = 9.5;
     perpus[11].status = "Tersedia";
 
-    perpus[12].judul_buku = "5 cm.";
+    perpus[12].judul_buku = "5 cm";
     perpus[12].penerbit = "PT. Grasindo, Yogyakarta";
     perpus[12].penulis = "Dhonny Dhirgantoro";
     perpus[12].tahun_terbit = 2005;
@@ -132,7 +132,7 @@ void data_buku(){
     perpus[19].rating = 8.0;
     perpus[19].status = "Tersedia";
 
-    perpus[20].judul_buku = "Runtuhnya Kerajaan Hindu Jawa";
+    perpus[20].judul_buku = "Runtuhnya Kerajaan Hindu Jawa dan Berdirinya Negara-Negara Islam di Nusantara";
     perpus[20].penerbit = "LKiS";
     perpus[20].penulis = "Slamet Muljana";
     perpus[20].tahun_terbit = 2007;
