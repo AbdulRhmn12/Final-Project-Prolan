@@ -162,7 +162,7 @@ void data_tags(){
 
     SEO.push_back({"Rapijali", "perjuangan remaja, cerita musik", 8.7});
     SEO.push_back({"Why? Camera – Kamera", "kamera, belajar kamera, fotografi, definisi kamera", 8.7});
-    SEO.push_back({"Wingit", "horor, cerita horor, hantu", 8.3});
+    SEO.push_back({"Wingit", "horor, cerita horor, hantu, kisah horor", 8.3});
     SEO.push_back({"Belantik", "cerita perjalanan hidup, fiksi", 8.0});
     SEO.push_back({"Runtuhnya Kerajaan Hindu Jawa dan Berdirinya Negara-Negara Islam di Nusantara", "sejarah, kerajaan, kerajaan Indonesia", 8.2});
 }
