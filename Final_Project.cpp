@@ -3,8 +3,11 @@
 #include <iomanip>
 #include <vector>
 #include <string>
-#define MAX 21
+#include <iostream>
+#include <stack>
+#define MAX 30
 
+int panjangArray = 0;
 bool isTrue = false;
 int flag = 0;
 
@@ -198,7 +201,7 @@ void printArray(){
     cout << "=========================================================================================================================" << endl;
     cout << "Judul Buku\t\t\tPenerbit\t\t\tPenulis\t\t\tTahun Terbit\tRating\tStatus\t" << endl;
     cout << "=========================================================================================================================" << endl;
-    for (int i = 1; i < MAX; i++){
+    for (int i = 1; i <= panjangArray; i++){
         cout<<setiosflags(ios::left)<<setw(32)<<perpus[i].judul_buku;
         cout<<setiosflags(ios::left)<<setw(32)<<perpus[i].penerbit;
         cout<<setiosflags(ios::left)<<setw(24)<<perpus[i].penulis;
@@ -216,9 +219,9 @@ void searching(){
         int tengah = 0;
 
         string dicari;
-        string arr[MAX];
+        string arr[panjangArray];
 
-        for (int i = 0; i < MAX; i++){
+        for (int i = 0; i < panjangArray; i++){
             arr[i] = perpus[i].judul_buku;
         }
         int size = sizeof(arr) / sizeof(arr[0]);
@@ -232,7 +235,7 @@ void searching(){
 
         do{
             int awal = 0;
-            int akhir = MAX - 1;
+            int akhir = panjangArray- 1;
             while(awal <= akhir){
                 tengah = (awal + akhir) / 2;
                 if(perpus[i].judul_buku == dicari){
@@ -252,10 +255,10 @@ void searching(){
             }
             i++;
         }
-        while (i < MAX);
+        while (i < panjangArray);
         cout << "=========================================================================================================================" << endl;
 
-        if (i >= MAX && !isTrue){
+        if (i >= panjangArray && !isTrue){
             cout<< "Data Buku " << dicari << " tidak ditemukan" << endl << endl;
         }
 
@@ -265,9 +268,9 @@ void searching(){
         int tengah = 0;
 
         string dicari;
-        string arr[MAX];
+        string arr[panjangArray];
 
-        for (int i = 0; i < MAX; i++){
+        for (int i = 0; i < panjangArray; i++){
             arr[i] = perpus[i].penerbit;
         }
         int size = sizeof(arr) / sizeof(arr[0]);
@@ -281,7 +284,7 @@ void searching(){
 
         do{
             int awal = 0;
-            int akhir = MAX - 1;
+            int akhir = panjangArray - 1;
             while(awal <= akhir){
                 tengah = (awal + akhir) / 2;
                 if(perpus[i].penerbit == dicari){
@@ -301,10 +304,10 @@ void searching(){
             }
             i++;
         }
-        while (i < MAX);
+        while (i < panjangArray);
         cout << "=========================================================================================================================" << endl;
 
-        if (i >= MAX && !isTrue){
+        if (i >= panjangArray && !isTrue){
             cout<< "Data Penerbit " << dicari << " tidak ditemukan" << endl << endl;
         }
         
@@ -312,10 +315,10 @@ void searching(){
         // Mencari data Berdasarkan Tahun Terbit
         int i = 0;
         int tengah = 0;
-        int arr[MAX];
+        int arr[panjangArray];
         int dicari;
 
-        for (int i = 0; i < MAX; i++){
+        for (int i = 0; i < panjangArray; i++){
             arr[i] = perpus[i].tahun_terbit;
         }
         int size = sizeof(arr) / sizeof(arr[0]);
@@ -329,7 +332,7 @@ void searching(){
 
         do{
             int awal = 0;
-            int akhir = MAX - 1;
+            int akhir = panjangArray - 1;
             while(awal <= akhir){
                 tengah = (awal + akhir) / 2;
                 if(perpus[i].tahun_terbit == dicari){
@@ -349,10 +352,10 @@ void searching(){
             }
             i++;
         }
-        while (i < MAX);
+        while (i < panjangArray);
         cout << "=========================================================================================================================" << endl;
 
-        if (i >= MAX && !isTrue){
+        if (i >= panjangArray && !isTrue){
             cout<< "Buku terbitan tahun " << dicari << " tidak ditemukan" << endl << endl;
         }
     }
@@ -390,37 +393,37 @@ void sorting(){
     if (flag == 4){
         // Sorting buku Berdasarkan Judul buku
         int i, j;
-        string key;
-
-        for (i = 1; i < MAX; i++){
-            key = perpus[i].judul_buku; 
+        perpustakaan key;
+        
+        for (i = 1; i <= panjangArray; i++){
+            key = perpus[i]; 
 
             j = i - 1;
             while (1){
-                if (!(j >= 0 && perpus[j].judul_buku.compare(key) > 0))
+                if (!(j >= 0 && perpus[j].judul_buku.compare(key.judul_buku) > 0))
                     break;
-                perpus[j + 1].judul_buku = perpus[j].judul_buku;  
+                perpus[j + 1] = perpus[j];  
                 j = j - 1; 
             }
-            perpus[j + 1].judul_buku = key; 
+            perpus[j + 1] = key; 
         } 
 
     } else if (flag == 5){
         // Sorting buku Berdasarkan Penerbit
         int i, j;
-        string key;
+        perpustakaan key;
 
-        for (i = 1; i < MAX; i++){
-            key = perpus[i].penerbit;
+        for (i = 1; i <= panjangArray; i++){
+            key = perpus[i];
 
             j = i - 1;
             while (1){
-                if (!(j >= 0 && perpus[j].penerbit.compare(key) > 0))
+                if (!(j >= 0 && perpus[j].penerbit.compare(key.penerbit) > 0))
                     break;
-                perpus[j + 1].penerbit = perpus[j].penerbit;
+                perpus[j + 1] = perpus[j];
                 j = j - 1;
             }
-            perpus[j + 1].penerbit = key;
+            perpus[j + 1]= key;
         }
 
     } else if (flag == 6){
@@ -428,7 +431,7 @@ void sorting(){
         perpustakaan temp_data;
         int j;
 
-        for (int i = 1; i < MAX; i++){
+        for (int i = 1; i <= panjangArray; i++){
             temp_data = perpus[i];
             j = i - 1;
 
@@ -445,17 +448,18 @@ void sorting(){
      	perpustakaan temp_data;
         int j;
 
-        for (int i = 1; i < MAX; i++){
+        for (int i = 1; i <= panjangArray; i++){
             temp_data = perpus[i];
             j = i - 1;
 
-            while (perpus[j].rating < temp_data.rating && j >= 0){
+            while (perpus[j].rating > temp_data.rating && j >= 0){
                 perpus[j + 1] = perpus[j];
                 j--;
             }
             perpus[j + 1] = temp_data;
         }
     }
+   
 }
 
 void pinjam_buku(){
@@ -464,9 +468,9 @@ void pinjam_buku(){
     int tengah = 0;
 
     string pinjam;
-    string arr[MAX];
+    string arr[panjangArray];
 
-    for (int i = 0; i < MAX; i++){
+    for (int i = 0; i < panjangArray; i++){
           arr[i] = perpus[i].judul_buku;
     }
     int size = sizeof(arr) / sizeof(arr[0]);
@@ -479,7 +483,7 @@ void pinjam_buku(){
     
     do{
         int awal = 0;
-        int akhir = MAX - 1;
+        int akhir = panjangArray - 1;
         while(awal <= akhir){
             tengah = (awal + akhir) / 2;
             if(perpus[i].judul_buku == pinjam && perpus[i].status == "Tersedia"){
@@ -507,8 +511,8 @@ void pinjam_buku(){
         }
         i++;
     }
-    while (i < MAX);
-    if (i >= MAX && !isTrue){
+    while (i < panjangArray);
+    if (i >= panjangArray && !isTrue){
         cout<< "Data Buku " << pinjam << " tidak ditemukan" << endl << endl;
     }
     cout << endl;
@@ -524,6 +528,7 @@ void admin(){
         isTrue = true;
     } else {
         isTrue = false;
+        cout << "Password salah!";
     }
 }
 
@@ -531,18 +536,161 @@ void edit_data(){
     admin();
     if(isTrue){
         if (flag == 8){
-            // Masukkan fungsi untuk menambahkan data buku menggunakan stack
+            int i = panjangArray + 1;
+            cout << "Masukkan Judul Baru : ";
+            getline(cin>>ws, perpus[i].judul_buku);
+            cout << "Masukkan Nama Penerbit : ";
+            getline(cin>>ws, perpus[i].penerbit);
+            cout << "Masukkan Nama Penulis : ";
+            getline(cin>>ws, perpus[i].penulis);
+            cout << "Masukkan Tahun Terbit : ";
+            cin >> perpus[i].tahun_terbit;
+            cout << "Masukkan Rating : ";
+            cin >> perpus[i].rating;
+            cout << "Masukkan Status Buku : ";
+            getline(cin>>ws, perpus[i].status);
+            panjangArray += 1;
+
         } else if (flag == 9){
-            // Masukkan fungsi untuk menghapus data buku menggunakan stack
+            isTrue = false;
+            int i = 0;
+            int tengah = 0;
+            int temp;
+            string hapus;
+            string arr[panjangArray];
+
+            for (int i = 0; i < panjangArray; i++){
+                arr[i] = perpus[i].judul_buku;
+            }
+            int size = sizeof(arr) / sizeof(arr[0]);
+            sort(arr, arr + size);
+
+            cout << "Judul buku yang Di Hapus : ";
+            getline(cin>>ws, hapus);
+            fflush(stdin);
+            
+            do{
+                int awal = 0;
+                int akhir = panjangArray - 1;
+                while(awal <= akhir){
+                    tengah = (awal + akhir) / 2;
+                    if(perpus[i].judul_buku == hapus && perpus[i].status == "Tersedia"){
+                        cout << "Buku Berhasil Di hapus" << endl;
+                        perpus[i].status = "Terhapus";
+                        cout << "=========================================================================================================================" << endl;
+                        cout<<setiosflags(ios::left)<<setw(32)<<perpus[i].judul_buku;
+                        cout<<setiosflags(ios::left)<<setw(32)<<perpus[i].penerbit;
+                        cout<<setiosflags(ios::left)<<setw(24)<<perpus[i].penulis;
+                        cout<<setiosflags(ios::left)<<setw(16)<<perpus[i].tahun_terbit;
+                        cout<<setiosflags(ios::left)<<setw(8)<<perpus[i].rating;
+                        cout<<setiosflags(ios::left)<<setw(10)<<perpus[i].status << endl;
+                        cout << "=========================================================================================================================" << endl;
+                        isTrue = true;
+                        temp = i;
+                        break;
+                    } else if (perpus[i].judul_buku > hapus){
+                        akhir = tengah - 1;
+                    } else if (perpus[i].judul_buku < hapus){
+                        awal = tengah + 1;
+                    } else {
+                        cout<< "Buku " << hapus << " sudah dihapus " << endl << endl;
+                        isTrue = true;
+                        break; 
+                    }
+                }
+                
+                i++;
+            }
+            while (i < panjangArray);
+            if (i >= panjangArray && !isTrue){
+                cout<< "Data Buku " << hapus << " tidak ditemukan" << endl << endl;
+            } else {
+                while (temp < panjangArray){
+                    perpus[temp] = perpus[temp+1];
+                    temp++;
+                }
+                panjangArray -= 1;
+            }
+
         } else if (flag == 10){
-            // Masukkan fungsi untuk merubah data buku dari dalam stack
+            int i = 0;
+            int tengah = 0;
+
+            string dicari;
+            string arr[panjangArray];
+
+            for (int i = 0; i < panjangArray; i++){
+                arr[i] = perpus[i].judul_buku;
+            }
+            int size = sizeof(arr) / sizeof(arr[0]);
+            sort(arr, arr + size);
+
+            cout << "Judul buku yang Ingin Anda Edit: ";
+            getline(cin>>ws, dicari);
+            fflush(stdin);
+
+            cout << "\nMencari Data Untuk " << dicari << endl;
+            
+            do{
+                int awal = 0;
+                int akhir = panjangArray- 1;
+                while(awal <= akhir){
+                    tengah = (awal + akhir) / 2;
+                    if(perpus[i].judul_buku == dicari){                       
+                        cout << "Masukkan Judul Baru : ";
+                        getline(cin>>ws, perpus[i].judul_buku);
+                        cout << "Masukkan Nama Penerbit : ";
+                        getline(cin>>ws, perpus[i].penerbit);
+                        cout << "Masukkan Nama Penulis : ";
+                        getline(cin>>ws, perpus[i].penulis);
+                        cout << "Masukkan Tahun Terbit : ";
+                        cin >> perpus[i].tahun_terbit;
+                        cout << "Masukkan Rating : ";
+                        cin >> perpus[i].rating;
+                        cout << "Masukkan Status Buku : ";
+                        getline(cin>>ws, perpus[i].status);
+                        
+                        cout << "=========================================================================================================================" << endl;
+                        cout<<setiosflags(ios::left)<<setw(32)<<perpus[i].judul_buku;
+                        cout<<setiosflags(ios::left)<<setw(32)<<perpus[i].penerbit;
+                        cout<<setiosflags(ios::left)<<setw(24)<<perpus[i].penulis;
+                        cout<<setiosflags(ios::left)<<setw(16)<<perpus[i].tahun_terbit;
+                        cout<<setiosflags(ios::left)<<setw(8)<<perpus[i].rating;
+                        cout<<setiosflags(ios::left)<<setw(10)<<perpus[i].status << endl;
+                        isTrue = true;
+                        break;
+                    } else if (perpus[i].judul_buku > dicari){
+                        akhir = tengah - 1;
+                    } else if (perpus[i].judul_buku < dicari){
+                        awal = tengah + 1;
+                    }
+                }
+                i++;
+            }
+            while (i < panjangArray);
+            cout << "=========================================================================================================================" << endl;
+
+            if (i >= panjangArray && !isTrue){
+                cout<< "Data Buku " << dicari << " tidak ditemukan" << endl << endl;
+            }
         }
     }
 }
 
+void hitungPanjangArray(){
+    int i = 1;
+    while(perpus[i].rating != 0){
+        i++;
+    }
+    panjangArray = i-1;
+}
+
 int main(){
     int pilihan;
+    hitungPanjangArray();
     
+    
+
     cout << "==========================================================================" << endl;
     cout << "=========       PEMROGRAMAN LANJUT   DATABOOK PERPUSTAKAAN      ==========" << endl;
     cout << "=========            PEMROGRAMAN LANJUT - KELOMPOK 2            ==========" << endl;
@@ -555,8 +703,9 @@ int main(){
     cout << "==========================================================================" << endl;
     data_buku();
     data_tags();
-    
+    hitungPanjangArray();
     while(1){
+        
         flag = 0;
         isTrue = false;
         cout << "Databook Perpustakaan" << endl;
@@ -658,13 +807,16 @@ int main(){
                     switch (pilihan){
                         case 1: flag = 8;
                                 edit_data();
+                                printArray();
                                 cout << endl;
                                 break;
                         case 2: flag = 9;
+                                printArray();
                                 edit_data();
-                                cout << endl;
+                                cout << endl << endl;
                                 break;
                         case 3: flag = 10;
+                                printArray();
                                 edit_data();
                                 cout << endl;
                                 break;
